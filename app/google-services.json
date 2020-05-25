@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "669849848457",
+    "firebase_url": "https://booklist-de569.firebaseio.com",
+    "project_id": "booklist-de569",
+    "storage_bucket": "booklist-de569.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669849848457:android:bb7ed46b0ff8cdb3a05458",
+        "android_client_info": {
+          "package_name": "mk.ukim.finki.mpip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669849848457-elavjo26j04pqre7rn86h0c9amaneio3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMEJHPurbA96eVUX6fVX5CHd8ZH_kMuh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669849848457-elavjo26j04pqre7rn86h0c9amaneio3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669849848457:android:3edb8d7333b36e3ca05458",
+        "android_client_info": {
+          "package_name": "mk.ukim.finki.mpip.booklist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669849848457-elavjo26j04pqre7rn86h0c9amaneio3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMEJHPurbA96eVUX6fVX5CHd8ZH_kMuh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669849848457-elavjo26j04pqre7rn86h0c9amaneio3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
