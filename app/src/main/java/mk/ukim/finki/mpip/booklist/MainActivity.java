@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 startActivity(new Intent(getApplicationContext(), Favourites.class));
-                finish();
+                //finish();
                 return true;
             }
         });

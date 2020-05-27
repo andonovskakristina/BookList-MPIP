@@ -1,8 +1,13 @@
 package mk.ukim.finki.mpip.booklist;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.telecom.Call;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -85,12 +90,43 @@ public class FirebaseDatabaseHelper {
         return mFavourites;
     }
 
-    public void addFavourite(String userId, final String bookId, Book book, List<Book> mFavourites) {
+    public void addFavourite(String userId, final String bookId, Book book, List<Book> mFavourites, Context mContext) {
         if (mFavourites.contains(book)) {
             mReferenceFavourites.child(userId).child("books").child(bookId).setValue(null);
         }
         else {
             mReferenceFavourites.child(userId).child("books").child(bookId).setValue(book);
+
+            // check if there are 5 fave books and push notification
+            String message = "";
+            if(mFavourites.size() + 1 == 5) {
+                message = "You have a great taste in books! Five Books added to your Favourites List. " +
+                        "Keep going and don't forget: \n\n “Books are a uniquely portable magic.”\n" +
+                        "― Stephen King, On Writing: A Memoir of the Craft";
+            }
+            else if(mFavourites.size() + 1 == 10) {
+                message = "Great job! Ten books added to your Favourites List. Keep being motivated. \n\n" +
+                        "“I have always imagined that Paradise will be a kind of library.”\n" +
+                        "― Jorge Luis Borges";
+            }
+
+            if(!message.isEmpty()) {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext)
+                        .setSmallIcon(R.drawable.ic_message)
+                        .setContentTitle("New Notification")
+                        .setContentText(message)
+                        .setAutoCancel(true);
+
+                Intent intent = new Intent(mContext, Notification.class);
+                intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("message", message);
+
+                PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                builder.setContentIntent(pendingIntent);
+
+                NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.notify(0, builder.build());
+            }
         }
     }
 }

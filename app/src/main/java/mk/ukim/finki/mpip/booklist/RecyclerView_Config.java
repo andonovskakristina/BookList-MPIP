@@ -134,7 +134,7 @@ public class RecyclerView_Config {
                 public void onClick(View v) {
                     new FirebaseDatabaseHelper()
                             .addFavourite(FirebaseAuth.getInstance().getUid(), mKeys.get(position),
-                                    mBookList.get(position), mFavourites);
+                                    mBookList.get(position), mFavourites, mContext);
                     if(mFavourites.contains(mBookList.get(position)))
                         mBtnFavourite.setBackground(mContext.getResources().getDrawable(R.drawable.ic_favorite));
                     else
@@ -248,7 +248,7 @@ public class RecyclerView_Config {
                 public void onClick(View v) {
                     new FirebaseDatabaseHelper()
                             .addFavourite(FirebaseAuth.getInstance().getUid(), mFavouritesKeys.get(position),
-                                    mFavourites.get(position), mFavourites);
+                                    mFavourites.get(position), mFavourites, mContext);
                     if(mFavourites.contains(mFavourites.get(position)))
                         mBtnFavourite.setBackground(mContext.getResources().getDrawable(R.drawable.ic_favorite));
                     else
